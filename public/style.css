@@ -1,54 +1,83 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
   color: white;
 }
 
-/* container principal */
+/* container */
 #app {
   max-width: 500px;
   margin: auto;
-  padding: 20px;
+  padding: 24px 20px;
   text-align: center;
 }
 
 /* título */
 h1 {
-  font-size: 22px;
-  margin-bottom: 25px;
-  line-height: 1.3;
+  font-size: 24px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  font-weight: 600;
 }
 
 /* pergunta */
 #question {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #cccccc;
 }
 
-/* botões */
+/* botão */
 button {
   display: block;
   width: 100%;
   padding: 18px;
-  margin: 10px 0;
+  margin: 12px 0;
   border: none;
-  border-radius: 12px;
-  background: #1c1c1c;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1f1f1f, #2a2a2a);
   color: white;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
 
-/* efeito toque */
-button:active {
-  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: all 0.2s ease;
 }
 
 /* hover */
 button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* clique */
+button:active {
+  transform: scale(0.97);
+}
+
+/* destaque (botão principal opcional) */
+button.primary {
+  background: linear-gradient(145deg, #00c853, #00e676);
+  color: #000;
+  font-weight: bold;
+}
+
+/* progresso (adicione no HTML depois) */
+.progress {
+  height: 6px;
   background: #2a2a2a;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #00e676;
+  transition: width 0.3s ease;
 }
 
 /* resultado */
@@ -56,14 +85,10 @@ button:hover {
   display: none;
 }
 
-/* 🔥 MOBILE OTIMIZADO */
+/* mobile */
 @media (max-width: 600px) {
-  #app {
-    padding: 16px;
-  }
-
   h1 {
-    font-size: 20px;
+    font-size: 21px;
   }
 
   #question {
@@ -72,6 +97,5 @@ button:hover {
 
   button {
     font-size: 17px;
-    padding: 18px;
   }
 }
