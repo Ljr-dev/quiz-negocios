@@ -1,32 +1,77 @@
 body {
-  font-family: Arial;
-  background: #111;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
   color: white;
-  text-align: center;
-  padding: 20px;
 }
 
+/* container principal */
+#app {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* título */
+h1 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  line-height: 1.3;
+}
+
+/* pergunta */
+#question {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* botões */
 button {
   display: block;
   width: 100%;
+  padding: 18px;
   margin: 10px 0;
-  padding: 15px;
   border: none;
-  border-radius: 10px;
-  background: #222;
+  border-radius: 12px;
+  background: #1c1c1c;
   color: white;
+  font-size: 16px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
+/* efeito toque */
+button:active {
+  transform: scale(0.98);
+}
+
+/* hover */
 button:hover {
-  background: #444;
+  background: #2a2a2a;
 }
 
+/* resultado */
 .hidden {
   display: none;
 }
 
-#app {
-  max-width: 500px;
-  margin: auto;
+/* 🔥 MOBILE OTIMIZADO */
+@media (max-width: 600px) {
+  #app {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  #question {
+    font-size: 17px;
+  }
+
+  button {
+    font-size: 17px;
+    padding: 18px;
+  }
 }
