@@ -5,62 +5,73 @@
   box-sizing: border-box;
 }
 
+/* ROOT (cores padronizadas) */
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-light: #1c1c1c;
+  --text-main: #ffffff;
+  --text-secondary: #cfcfcf;
+  --primary: #00e676;
+}
+
 /* BODY */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #0f0f0f, #1c1c1c);
-  color: #ffffff;
+  background: linear-gradient(180deg, var(--bg-dark), var(--bg-light));
+  color: var(--text-main);
+
+  min-height: 100dvh; /* 🔥 CORREÇÃO MOBILE REAL */
 }
 
-/* CONTAINER CENTRAL */
+/* CONTAINER PRINCIPAL */
 #app {
   max-width: 500px;
   margin: auto;
   padding: 24px 20px;
 
-  min-height: 100vh;
+  min-height: 100dvh;
 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centraliza vertical */
+  justify-content: center;
+  align-items: stretch;
+
   text-align: center;
+  gap: 12px;
 }
 
 /* TÍTULO */
 h1 {
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 18px;
   line-height: 1.4;
 }
 
 /* PERGUNTA */
 #question {
   font-size: 18px;
-  color: #cfcfcf;
-  margin-bottom: 25px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
 }
 
 /* BOTÕES */
 button {
   width: 100%;
   padding: 18px;
-  margin: 10px 0;
-
   border: none;
-  border-radius: 14px;
+  border-radius: 16px;
 
   font-size: 16px;
   font-weight: 500;
 
-  color: #ffffff;
+  color: var(--text-main);
   cursor: pointer;
 
   background: linear-gradient(145deg, #1f1f1f, #2a2a2a);
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 
-  transition: all 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
 }
 
 /* HOVER */
@@ -71,29 +82,28 @@ button:hover {
 
 /* CLIQUE */
 button:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
-/* BOTÃO DE DESTAQUE (CTA) */
+/* BOTÃO PRINCIPAL (CTA) */
 button.primary {
   background: linear-gradient(145deg, #00c853, #00e676);
   color: #000;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* BARRA DE PROGRESSO */
 .progress {
   height: 6px;
   background: #2a2a2a;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  border-radius: 999px;
   overflow: hidden;
 }
 
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: #00e676;
+  background: var(--primary);
   transition: width 0.3s ease;
 }
 
@@ -102,9 +112,20 @@ button.primary {
   display: none;
 }
 
-/* ESPAÇAMENTO FINAL (respiração visual) */
-#app > *:last-child {
-  margin-bottom: 10px;
+/* MICRO INTERAÇÃO (entrada suave) */
+#app > * {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* MOBILE */
